@@ -11,7 +11,11 @@ const ImageItems = () => {
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const res = await fetch("http://localhost:8000");
+        const url =
+          import.meta.env.MODE === "development"
+            ? "http://localhost:8000"
+            : import.meta.env.api;
+        const res = await fetch(url);
         const resJson = await res.json();
         const arraofItems = resJson.items as Array<item>;
         const getItems = arraofItems.map((v) => {

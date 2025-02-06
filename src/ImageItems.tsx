@@ -14,7 +14,7 @@ const ImageItems = () => {
         const url =
           import.meta.env.MODE === "development"
             ? "http://localhost:8000"
-            : import.meta.env.api;
+            : "https://anime-wallpaper-api.deno.dev";
         const res = await fetch(url);
         const resJson = await res.json();
         const arraofItems = resJson.items as Array<item>;
